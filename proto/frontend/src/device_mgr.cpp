@@ -604,9 +604,11 @@ class DeviceMgrImp {
       // thanks to our per-table lock.
       if (entry_data == nullptr) {
         Logger::get()->critical("Table state out-of-sync with target");
-        assert(0 && "Invalid state");
+        //assert(0 && "Invalid state");
       }
-      table_entry->set_controller_metadata(entry_data->controller_metadata);
+      else{
+        table_entry->set_controller_metadata(entry_data->controller_metadata);
+      }
     }
 
     pi_table_entries_fetch_done(session.get(), res);
